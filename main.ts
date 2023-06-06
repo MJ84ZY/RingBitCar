@@ -8,19 +8,22 @@ devices.onGamepadButton(MesDpadButtonInfo._3Down, function () {
 })
 bluetooth.onBluetoothConnected(function () {
     basic.showIcon(IconNames.Scissors)
+    music.startMelody(music.builtInMelody(Melodies.Ringtone), MelodyOptions.Once)
     basic.pause(200)
 })
 bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Sad)
-    basic.pause(200)
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    basic.pause(100)
+    strip.showColor(neopixel.colors(NeoPixelColors.Orange))
+    basic.pause(100)
 })
 devices.onGamepadButton(MesDpadButtonInfo.BDown, function () {
-    basic.showString("B")
     RingbitCar.back()
 })
 input.onButtonPressed(Button.A, function () {
     RingbitCar.forward()
-    basic.pause(5000)
+    basic.pause(200)
     RingbitCar.brake()
 })
 devices.onGamepadButton(MesDpadButtonInfo._2Down, function () {
@@ -31,10 +34,8 @@ devices.onGamepadButton(MesDpadButtonInfo.DDown, function () {
 })
 devices.onGamepadButton(MesDpadButtonInfo.CDown, function () {
     RingbitCar.brake()
-    basic.showString("C")
 })
 devices.onGamepadButton(MesDpadButtonInfo.ADown, function () {
-    basic.showString("A")
     RingbitCar.forward()
 })
 devices.onGamepadButton(MesDpadButtonInfo._1Down, function () {
@@ -43,13 +44,11 @@ devices.onGamepadButton(MesDpadButtonInfo._1Down, function () {
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     basic.showIcon(IconNames.Butterfly)
 })
+let strip: neopixel.Strip = null
+music.setBuiltInSpeakerEnabled(true)
 basic.showNumber(0)
 RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
-let strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
 basic.forever(function () {
-    basic.showNumber(6)
-    strip.showColor(neopixel.colors(NeoPixelColors.Blue))
-    basic.pause(100)
-    strip.showColor(neopixel.colors(NeoPixelColors.Red))
-    basic.pause(100)
+	
 })
