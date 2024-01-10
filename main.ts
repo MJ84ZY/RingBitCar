@@ -28,6 +28,7 @@ bluetooth.onBluetoothDisconnected(function () {
     basic.pause(100)
 })
 input.onButtonPressed(Button.A, function () {
+    billy.say("hello 123")
     display.rotateTo(display.Direction.UpsideDown)
 })
 devices.onGamepadButton(MesDpadButtonInfo._2Down, function () {
