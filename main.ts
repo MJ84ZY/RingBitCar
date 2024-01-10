@@ -3,6 +3,10 @@ devices.onGamepadButton(MesDpadButtonInfo._4Down, function () {
     basic.showArrow(ArrowNames.West)
     RingbitCar.turnright()
 })
+function Testing () {
+    display.rotateTo(display.Direction.LogoToRight)
+    basic.showIcon(IconNames.Happy)
+}
 devices.onGamepadButton(MesDpadButtonInfo._3Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.East)
@@ -23,6 +27,9 @@ bluetooth.onBluetoothDisconnected(function () {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     basic.pause(100)
 })
+input.onButtonPressed(Button.A, function () {
+    display.rotateTo(display.Direction.UpsideDown)
+})
 devices.onGamepadButton(MesDpadButtonInfo._2Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.South)
@@ -40,6 +47,14 @@ function InitDirection () {
 devices.onGamepadButton(MesDpadButtonInfo.ADown, function () {
 	
 })
+function Main () {
+    music.setBuiltInSpeakerEnabled(true)
+    InitInstance()
+    basic.showIcon(IconNames.Happy)
+    RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
+    strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
+    strip.showColor(neopixel.colors(NeoPixelColors.Violet))
+}
 devices.onGamepadButton(MesDpadButtonInfo._1Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.South)
@@ -61,14 +76,12 @@ let bLeft = 0
 let bBottom = 0
 let bTop = 0
 let bSoundOn = 0
-let bBlueConnected = 0
 let strip: neopixel.Strip = null
-music.setBuiltInSpeakerEnabled(true)
-InitInstance()
-basic.showIcon(IconNames.Happy)
-RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
-strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
-strip.showColor(neopixel.colors(NeoPixelColors.Violet))
+let bBlueConnected = 0
+Testing()
+loops.everyInterval(500, function () {
+	
+})
 basic.forever(function () {
 	
 })
