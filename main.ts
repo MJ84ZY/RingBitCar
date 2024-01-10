@@ -1,60 +1,53 @@
-devices.onGamepadButton(MesDpadButtonInfo._4Down, function on_gamepad_button__4_down() {
+devices.onGamepadButton(MesDpadButtonInfo._4Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.West)
     RingbitCar.turnright()
 })
-function Testing() {
+function Testing () {
     display.rotateTo(display.Direction.LogoToRight)
     basic.showIcon(IconNames.Happy)
 }
-
-devices.onGamepadButton(MesDpadButtonInfo._3Down, function on_gamepad_button__3_down() {
+devices.onGamepadButton(MesDpadButtonInfo._3Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.East)
     RingbitCar.turnleft()
 })
-bluetooth.onBluetoothConnected(function on_bluetooth_connected() {
-    
+bluetooth.onBluetoothConnected(function () {
     basic.showIcon(IconNames.Scissors)
-    bBlueConnected = 1
+    bBlueConnected = true
     strip.showColor(neopixel.colors(NeoPixelColors.Green))
     if (bSoundOn) {
         music.startMelody(music.builtInMelody(Melodies.Ringtone), MelodyOptions.Once)
         basic.pause(200)
     }
-    
 })
-bluetooth.onBluetoothDisconnected(function on_bluetooth_disconnected() {
-    
+bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Sad)
-    bBlueConnected = 0
+    bBlueConnected = false
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     basic.pause(100)
 })
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
+input.onButtonPressed(Button.A, function () {
     display.rotateTo(display.Direction.UpsideDown)
 })
-devices.onGamepadButton(MesDpadButtonInfo._2Down, function on_gamepad_button__2_down() {
+devices.onGamepadButton(MesDpadButtonInfo._2Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.South)
     RingbitCar.back()
 })
-devices.onGamepadButton(MesDpadButtonInfo.CDown, function on_gamepad_button_cdown() {
+devices.onGamepadButton(MesDpadButtonInfo.CDown, function () {
     RingbitCar.brake()
 })
-function InitDirection() {
-    
-    bTop = 0
-    bBottom = 0
-    bLeft = 0
-    bRight = 0
+function InitDirection () {
+    bTop = false
+    bBottom = false
+    bLeft = false
+    bRight = false
 }
-
-devices.onGamepadButton(MesDpadButtonInfo.ADown, function on_gamepad_button_adown() {
-    
+devices.onGamepadButton(MesDpadButtonInfo.ADown, function () {
+	
 })
-function Main() {
-    
+function Main () {
     music.setBuiltInSpeakerEnabled(true)
     InitInstance()
     basic.showIcon(IconNames.Happy)
@@ -62,37 +55,36 @@ function Main() {
     strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
     strip.showColor(neopixel.colors(NeoPixelColors.Violet))
 }
-
-devices.onGamepadButton(MesDpadButtonInfo._1Down, function on_gamepad_button__1_down() {
+devices.onGamepadButton(MesDpadButtonInfo._1Down, function () {
     InitDirection()
     basic.showArrow(ArrowNames.South)
     RingbitCar.forward()
 })
-input.onLogoEvent(TouchButtonEvent.Touched, function on_logo_touched() {
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    bLogoTouch = !(bLogoTouch)
     basic.showIcon(IconNames.Butterfly)
 })
-function InitInstance() {
-    
-    bBlueConnected = 0
-    bSoundOn = 0
+function InitInstance () {
+    bBlueConnected = false
+    bSoundOn = false
+    bLogoTouch = false
     InitDirection()
 }
-
-function ClearLed() {
-    
+function ClearLed () {
+	
 }
-
-let bRight = 0
-let bLeft = 0
-let bBottom = 0
-let bTop = 0
-let bSoundOn = 0
-let strip : neopixel.Strip = null
-let bBlueConnected = 0
+let bLogoTouch = false
+let bRight = false
+let bLeft = false
+let bBottom = false
+let bTop = false
+let bSoundOn = false
+let strip: neopixel.Strip = null
+let bBlueConnected = false
 Testing()
-loops.everyInterval(500, function on_every_interval() {
-    
+loops.everyInterval(500, function () {
+	
 })
-basic.forever(function on_forever() {
-    
+basic.forever(function () {
+	
 })
