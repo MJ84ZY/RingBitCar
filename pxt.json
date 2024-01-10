@@ -15,7 +15,8 @@
         "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2",
         "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
         "pxt-flexfx": "github:grandpabond/pxt-flexfx#v2.2.7",
-        "pxt-morse": "github:bsiever/pxt-morse#v2.0.0"
+        "pxt-morse": "github:bsiever/pxt-morse#v2.0.0",
+        "Billy": "github:adamish/pxt-billy#v0.0.25"
     },
     "files": [
         "main.blocks",
@@ -33,7 +34,7 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "yotta": {
         "config": {
             "microbit-dal": {
