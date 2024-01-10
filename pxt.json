@@ -6,7 +6,16 @@
         "microphone": "*",
         "Bluetooth Devices": "github:mj84zy/bluetooth-devices#40058d06860de21ff5ed257b6a4d0ba74fe1af53",
         "RingbitCar": "github:tinkertanker/pxt-ringbitcar#v3.1.4",
-        "servo": "*"
+        "servo": "*",
+        "audio-recording": "*",
+        "datalogger": "*",
+        "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
+        "power": "github:microbit-foundation/pxt-microbit-v2-power#v0.2.3",
+        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
+        "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2",
+        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
+        "pxt-flexfx": "github:grandpabond/pxt-flexfx#v2.2.7",
+        "pxt-morse": "github:bsiever/pxt-morse#v2.0.0"
     },
     "files": [
         "main.blocks",
@@ -18,7 +27,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "5.0.12",
+        "target": "6.0.25",
         "targetId": "microbit"
     },
     "supportedTargets": [
