@@ -6,6 +6,7 @@ const BIT_RIGHT = 3
 // constant declare end
 
 // variable Declare start
+let g_nCurrentDirection = -1
 let g_bDirection = [false, false, false, false]
 
 let g_bLogoTouch = false
@@ -26,18 +27,24 @@ function InitVariable()
 
 function InitDirection() 
 {
+    g_nCurrentDirection=-1
     for (let i = 0; i < 4; i++) 
        g_bDirection[i]=false
 }
 
 function SetCurrentDirection(nDirection:number)
-{   for(let i=0; i<4; i++)
+{   
+    g_nCurrentDirection=nDirection
+    for(let i=0; i<4; i++)
         g_bDirection[i] = (i == nDirection) ? true : false
 }
 
 function InitInstance() 
 {
     InitVariable()
+    InitMusic()
+    InitTextToSpeech()
+    InitRingBitCar()
 }
 
 function InitRingBitCar()
@@ -47,12 +54,20 @@ function InitRingBitCar()
 
 function InitMusic()
 {
+    // this line needed ? 
+    music.setBuiltInSpeakerEnabled(true)
+    
+    music.setVolume(170)
+}
 
+function InitTextToSpeech()
+{
+    billy.configureVoice(72, 128, 128, 128)
+    billy.voicePreset(BillyVoicePreset.LittleRobot)
 }
 
 function Main() 
 {
-    music.setBuiltInSpeakerEnabled(true)
     InitInstance()
     basic.showIcon(IconNames.Happy)
     RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
@@ -98,7 +113,7 @@ devices.onGamepadButton(MesDpadButtonInfo._4Down, function ()
 
 devices.onGamepadButton(MesDpadButtonInfo.ADown, function () 
 {
-
+    billy.say("hello world")
 })
 
 devices.onGamepadButton(MesDpadButtonInfo.BDown, function () 
