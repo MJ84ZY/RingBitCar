@@ -1,9 +1,14 @@
+// constant declare start
+const BIT_TOP = 0
+const BIT_BOTTOM = 1
+const BIT_LEFT = 2
+const BIT_RIGHT = 3
+// constant declare end
+
 // variable Declare start
+let g_bDirection = [false, false, false, false]
+
 let g_bLogoTouch = false
-let g_bRight = false
-let g_bLeft = false
-let g_bBottom = false
-let g_bTop = false
 let g_bSoundOn = false
 let g_bBlueConnected = false
 
@@ -21,10 +26,13 @@ function InitVariable()
 
 function InitDirection() 
 {
-    g_bTop = false
-    g_bBottom = false
-    g_bLeft = false
-    g_bRight = false
+    for (let i = 0; i < 4; i++) 
+       g_bDirection[i]=false
+}
+
+function SetCurrentDirection(nDirection:number)
+{   for(let i=0; i<4; i++)
+        g_bDirection[i] = (i == nDirection) ? true : false
 }
 
 function InitInstance() 
