@@ -5,6 +5,17 @@ const BIT_LEFT = 2
 const BIT_RIGHT = 3
 // constant declare end
 
+// led pattern start
+let ledSingle = `
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+`;
+
+// led pattern end
+
 // variable Declare start
 let g_nCurrentDirection = -1
 let g_bDirection = [false, false, false, false]
@@ -76,7 +87,18 @@ function Main()
 
 function Menu()
 {
-
+    while(1)
+    {   
+        if(input.buttonIsPressed(Button.A))
+        {
+        }
+        else if(input.buttonIsPressed(Button.B))
+        {
+        }
+        else if(input.buttonIsPressed(Button.AB))
+        {
+        }
+    }
 }
 
 function Testing() 
