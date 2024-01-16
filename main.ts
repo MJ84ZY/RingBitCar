@@ -18,8 +18,7 @@ let g_strip: neopixel.Strip = null
 
 // function Declare start
 function InitVariable()
-{   InitDirection()
-
+{  
     g_bBlueConnected = false
     g_bSoundOn = false
     g_bLogoTouch = false
@@ -42,6 +41,7 @@ function SetCurrentDirection(nDirection:number)
 function InitInstance() 
 {
     InitVariable()
+    InitDirection()
     InitMusic()
     InitTextToSpeech()
     InitRingBitCar()
@@ -49,7 +49,9 @@ function InitInstance()
 
 function InitRingBitCar()
 {
-
+    RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
+    g_strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
+    g_strip.showColor(neopixel.colors(NeoPixelColors.Violet))
 }
 
 function InitMusic()
@@ -70,9 +72,11 @@ function Main()
 {
     InitInstance()
     basic.showIcon(IconNames.Happy)
-    RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
-    g_strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
-    g_strip.showColor(neopixel.colors(NeoPixelColors.Violet))
+}
+
+function Menu()
+{
+
 }
 
 function Testing() 
