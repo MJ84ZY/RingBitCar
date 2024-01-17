@@ -1,3 +1,10 @@
+// Remark Important Record Time
+// 2024-Jan-17 10:05 pm
+
+// 1. How to reset
+// 2. How to check lighting neopixel working or not
+// 3. bluetooth connection  problem 989 /988
+
 // constant declare start
 const BIT_TOP = 0
 const BIT_BOTTOM = 1
@@ -189,7 +196,7 @@ input.onButtonPressed(Button.A, function ()
 
 input.onButtonPressed(Button.B, function () 
 {
-	
+    Main()
 })
 
 input.onGesture(Gesture.Shake, function () 
