@@ -1,5 +1,5 @@
 // Remark Important Record Time
-// 2024-Jan-18 08:39 
+// 2024-Jan-18 12:35
 
 // 1. How to reset - only have soft reset, 
 // won't clear any stored data or configurations made during the program execution.
@@ -123,6 +123,7 @@ function TestFileSystem()
 function Testing() 
 {
     
+    faces.wink(true)
 }
 
 function TestNeopixel() {
@@ -217,7 +218,8 @@ input.onButtonPressed(Button.B, function ()
 {
     //TestNeopixel()
     //Main()
-    Reset()
+    //Reset()
+    Testing()
 })
 
 input.onGesture(Gesture.Shake, function () 
