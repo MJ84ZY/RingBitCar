@@ -1,8 +1,9 @@
 // Remark Important Record Time
-// 2024-Jan-17 10:05 pm
+// 2024-Jan-18 08:39 
 
-// 1. How to reset
-// 2. How to check lighting neopixel working or not
+// 1. How to reset - only have soft reset, 
+// won't clear any stored data or configurations made during the program execution.
+// 2. How to check lighting neopixel working or not - code added TestNeopixel
 // 3. bluetooth connection  problem 989 /988
 
 // constant declare start
@@ -86,6 +87,11 @@ function InitTextToSpeech()
     billy.voicePreset(BillyVoicePreset.LittleRobot)
 }
 
+function Reset()
+{
+    control.reset()
+}
+
 function Main() 
 {
     InitInstance()
@@ -108,9 +114,22 @@ function Menu()
     }
 }
 
+function TestFileSystem()
+{
+    
+
+}
+
 function Testing() 
 {
     
+}
+
+function TestNeopixel() {
+    g_strip.showColor(neopixel.colors(NeoPixelColors.Blue));
+    basic.pause(1000);  // Pause for 1 second
+    g_strip.clear();    //  turns off all Neopixels
+    g_strip.show();     // display the clear state
 }
 
 // function Declare end
@@ -196,7 +215,9 @@ input.onButtonPressed(Button.A, function ()
 
 input.onButtonPressed(Button.B, function () 
 {
-    Main()
+    //TestNeopixel()
+    //Main()
+    Reset()
 })
 
 input.onGesture(Gesture.Shake, function () 
