@@ -1,5 +1,5 @@
 // Remark Important Record Time
-// 2024-Jan-24 1057
+// 2024-Jan-24 1620
 
 // 1. How to reset - only have soft reset, 
 // won't clear any stored data or configurations made during the program execution.
@@ -139,8 +139,11 @@ function TestFileSystem()
 
 function Testing() 
 {
+    files.appendLine("data.txt", "Hello");
+    files.appendNumber("data.txt", 42);
+    files.appendString("data.txt", "Hello");
+    files.readToSerial("data.txt");
     
-    faces.wink(true)
 }
 
 function TestNeopixel() {
