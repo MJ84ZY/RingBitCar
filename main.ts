@@ -1,5 +1,5 @@
 // Remark Important Record Time
-// 2024-Jan-18 12:35
+// 2024-Jan-24 1057
 
 // 1. How to reset - only have soft reset, 
 // won't clear any stored data or configurations made during the program execution.
@@ -36,6 +36,21 @@ let g_strip: neopixel.Strip = null
 // variable Declare end
 
 // function Declare start
+function StartBluetoothService()
+{
+    bluetooth.startAccelerometerService()
+    bluetooth.startButtonService()
+    bluetooth.startIOPinService()
+    bluetooth.startLEDService()
+    bluetooth.startTemperatureService()
+    bluetooth.startMagnetometerService()
+}
+
+function InitBluetooth()
+{
+    bluetooth.setTransmitPower(7.)
+}
+
 function InitVariable()
 {  
     g_bBlueConnected = false
@@ -60,6 +75,8 @@ function SetCurrentDirection(nDirection:number)
 function InitInstance() 
 {
     InitVariable()
+    InitBluetooth()
+    StartBluetoothService()
     InitDirection()
     InitMusic()
     InitTextToSpeech()
@@ -132,7 +149,6 @@ function TestNeopixel() {
     g_strip.clear();    //  turns off all Neopixels
     g_strip.show();     // display the clear state
 }
-
 // function Declare end
 
 // controller function start
