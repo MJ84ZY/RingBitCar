@@ -33,6 +33,7 @@ let g_bSoundOn = false
 let g_bBlueConnected = false
 
 let g_strip: neopixel.Strip = null
+let g_timeStarted = input.runningTime();
 // variable Declare end
 
 // function Declare start
@@ -102,6 +103,18 @@ function InitTextToSpeech()
 {
     billy.configureVoice(72, 128, 128, 128)
     billy.voicePreset(BillyVoicePreset.LittleRobot)
+}
+
+function GetCurrentRunnigTime()
+{
+    let currentTime = input.runningTime() - g_timeStarted;
+    let seconds = Math.idiv(currentTime, 1000);
+    let minutes = Math.idiv(seconds, 60);
+    seconds = seconds % 60;
+
+    let time = minutes * 100 + seconds;
+
+    return(time)
 }
 
 function Reset()
@@ -238,7 +251,7 @@ input.onButtonPressed(Button.B, function ()
     //TestNeopixel()
     //Main()
     //Reset()
-    Testing()
+    basic.showNumber(GetCurrentRunnigTime())
 })
 
 input.onGesture(Gesture.Shake, function () 
