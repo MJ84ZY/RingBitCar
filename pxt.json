@@ -31,7 +31,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "6.1.8",
+        "target": "8.0.13",
         "targetId": "microbit"
     },
     "supportedTargets": [
